@@ -26,11 +26,13 @@ public class HomeSales
 	  Scanner kbd = new Scanner(System.in);
 
 	  String input = kbd.nextLine();
+
     inputFile = openFile(input);
-    while (inputFile != null) {
+
+    while (inputFile == null) {
+      System.out.println("Cannot find file. Try again.");
       input = kbd.nextLine();
-      System.out.println("cannot find file. try again");
-      kbd.nextLine();
+      inputFile = openFile(input);
     }
      
 	  kbd.close();
@@ -39,10 +41,13 @@ public class HomeSales
 	  ArrayList<Double> numberList = new ArrayList<Double>();
       while (inputFile.hasNext())
       {
-    	  //@TODO add error handling when processing the string input
-		  numberList.add(inputFile.nextDouble());
-		  months++;
-		 
+	try {
+	  numberList.add(inputFile.nextDouble());
+	  months++;
+	} catch (InputMismatchException e) {
+	  System.out.println("Error. Skipping.");
+	  inputFile.nextLine();
+	}
       }
       
       inputFile.close();
@@ -57,7 +62,7 @@ public class HomeSales
       // Display the results.
       System.out.printf("Number of months: %d\n" +
                        "Total Sales: $%,.2f\n" +
-                       "Average Sales: $%,.2f",
+                       "Average Sales: $%,.2f\n",
                        months, totalSales, averageSales);
       System.exit(0);
    }

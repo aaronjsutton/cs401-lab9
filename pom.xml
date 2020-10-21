@@ -28,7 +28,7 @@
           <artifactId>exec-maven-plugin</artifactId>
           <version>3.0.0</version>
           <configuration>
-            <mainClass>edu.pitt.cmpinf401.lab9.Lab9Demo</mainClass>
+            <mainClass>edu.pitt.cmpinf401.lab9.RectangleReader</mainClass>
           </configuration>
           <executions>
             <execution>

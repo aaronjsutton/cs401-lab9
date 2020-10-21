@@ -1,0 +1,4 @@
+Rectangle 1, blue, 4, 6
+Rectangle 2, orange, 10, 5
+Rectangle 3, yellow 4, 4
+Rectangle 4, black, 6, 9
